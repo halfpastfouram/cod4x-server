@@ -182,6 +182,15 @@ onPlayerSpawned()
                         self maps\mp\gametypes\_hardpoints::giveOwnedHardpointItem();
                         self common_scripts\utility::waittill_any("spawnProtectionDisabled");
                         self SwitchToWeapon(weapon);
+                } else if (level.script == "mp_killhouse") {
+                        weapon = "m1014_grip_mp";
+                        self TakeAllWeapons();
+                        self ClearPerks();
+                        self GiveWeapon(weapon);
+                        self SetPerk("specialty_fastreload");
+                        self maps\mp\gametypes\_hardpoints::giveOwnedHardpointItem();
+                        self common_scripts\utility::waittill_any("spawnProtectionDisabled");
+                        self SwitchToWeapon(weapon);
                 }
         }
 }
