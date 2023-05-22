@@ -129,6 +129,11 @@ onStartGameType()
                 level.displayRoundEndText = true;
                 level.onEndGame = ::onEndGame;
         }
+
+        if (level.script == "mp_shipment") {
+                self.oldName = getDvar("sv_hostname");
+                setDvar("sv_hostname", self.oldName + " ^3Pistol only!");
+        }
 }
 
 onSpawnPlayer()
@@ -171,7 +176,10 @@ onPlayerSpawned()
                 if (level.script == "mp_shipment") {
                         weapon = "beretta_mp";
                         self TakeAllWeapons();
+                        self ClearPerks();
                         self GiveWeapon(weapon);
+                        self SetPerk("specialty_fastreload");
+                        self maps\mp\gametypes\_hardpoints::giveOwnedHardpointItem();
                         self common_scripts\utility::waittill_any("spawnProtectionDisabled");
                         self SwitchToWeapon(weapon);
                 }
@@ -180,6 +188,8 @@ onPlayerSpawned()
 
 onEndGame( winningTeam )
 {
+        setDvar("sv_hostname", self.oldName);
+
         if ( isdefined( winningTeam ) && (winningTeam == "allies" || winningTeam == "axis") )
                 [[level._setTeamScore]]( winningTeam, [[level._getTeamScore]]( winningTeam ) + 1 );
 }
