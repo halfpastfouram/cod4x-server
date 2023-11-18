@@ -8,4 +8,6 @@ Steps taken to install the servers:
 5. `wget https://github.com/callofduty4x/CoD4x_Server/releases/download/21.2/cod4x18_dedrun`
 6. `wget https://github.com/callofduty4x/CoD4x_Server/releases/download/21.2/plugins_linux.zip`
 7. `unzip plugins_linux.zip`
-8. Go to https://docs.linuxgsm.com/linux/distro#debian
+8. Go to https://docs.linuxgsm.com/linux/distro#debian, follow tutorial.
+9. Download and install https://github.com/leiizko/cod4_new_experience.
+10. 
